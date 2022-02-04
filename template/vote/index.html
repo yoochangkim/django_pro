@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+
+{% block con %}
+
+<div class="container mt-5 mb-5" style="width: 80%;">
+    <h1><b> 투표 </b></h1>
+        <div class="mt-3 text-end">
+            <a href="{% url 'book:create' %}"><button class="btn btn-success">CREATE</button></a>
+    
+        </div>
+        {% if tlist %}
+            <div class="row">
+                {% for i in tlist %}
+                <div class="col-lg-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>{{ i.subject }}</b></h5>
+                            <p class="card-text"> {{ i.content }}</p>
+                            <a href="{% url 'vote:detail' i.id %}" class="btn btn-primary" style="width:40%;">투표하기</a>
+                            <a href="" class="btn btn-secondary" style="width:40%;">삭제</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    
+        {% else %}
+        목록이 없습니다. 첫 투표를 생성해주세요.
+        {% endif %}
+ 
+    </div>
+{% endblock %}

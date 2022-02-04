@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block con %}
+    <div class="container mt-5 mb-5" style="font-size: 20px; font-weight: bold; width: 80%;">
+        
+        <h1><b>즐겨찾기 생성</b></h1>
+     
+        <form method="POST">   
+            {% csrf_token %}
+            <div class="text-end">
+                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                <label class="btn btn-outline-warning" for="btncheck2">✨추가</label>
+            </div>
+            <div class="mb-3 mt-5">
+                <input type="text" name="sname" class="form-control" placeholder="SITE 이름을 넣어주세요">
+            </div>
+            <div class="mb-3">
+                <input type="text" name="surl" class="form-control" placeholder="SITE 주소 넣어주세요">
+            </div>
+            <div class="mb-3">
+                <textarea name="scon" class="form-control" style="height: 100px;" placeholder="SITE 설명을 간단히 입력하세요."></textarea>
+            </div>
+            <div class="text-end mt-3">
+                <button type="submit" class="btn btn-dark">생성</button>
+            </div>
+        </form> 
+
+    </div>
+{% endblock %}

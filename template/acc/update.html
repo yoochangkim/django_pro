@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block con %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container mt-5 mb-5"  style="font-size: 20px; font-weight: bold; width: 60%;">
+            <h1><b>UPDATE</b></h1>
+            <div class="row mt-5">
+                <div class="col-lg-9">
+                    <div class="mb-3">
+                        <label class="form-label">USERNAME</label>
+                        <input type="text" value="{{user.username}}" disabled class="form-control" style="font-size: larger; font-weight: bold;" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">PASSWORD</label>
+                        <input type="password" name="upass" class="form-control" id="exampleInputPassword1" style="font-size: larger; font-weight: bold;">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">AGE</label>
+                        <input type="number" value="{{user.age}}" disabled class="form-control" aria-describedby="emailHelp" style="font-size: larger; font-weight: bold;">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">COMMENT</label>
+                        <textarea class="form-control" name="comment" style="font-size: larger; font-weight: bold;">{{ user.comment }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <input type="file" name="pic" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="text-center mt-5">
+                        <img src="{{ user.getpic }}" height="300px">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="{% url 'acc:profile' %}"><button type="button" class="btn btn-dark">뒤로가기</button></a>
+                <button class="btn btn-dark">수정하기</button>
+            </div>
+
+
+
+        </div>
+    </form>
+{% endblock %}
